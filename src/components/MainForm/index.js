@@ -12,7 +12,7 @@ const MainForm = () => {
 
             <Form.Group controlId="formEbitda">
                 <Form.Label>EBITDA*</Form.Label>
-                <Form.Control type="number" placeholder="Enter EBITDA (£)" />
+                <Form.Control type="number" placeholder="£" />
                 <Form.Text className="text-muted">
                 *Earnings Before Interest, Taxation, Depreciation and Amortisation
                 </Form.Text>
@@ -23,13 +23,13 @@ const MainForm = () => {
                 <Col>
                     <Form.Group controlId="formOpDebtors">
                         <Form.Label>Opening trade debtors</Form.Label>
-                        <Form.Control type="number" placeholder="Enter opening trade debtors (£)" />
+                        <Form.Control type="number" placeholder="£" />
                     </Form.Group>
                 </Col>
                 <Col>
                     <Form.Group controlId="formClDebtors">
                         <Form.Label>Closing trade debtors</Form.Label>
-                        <Form.Control type="number" placeholder="Enter closing trade debtors (£)" />
+                        <Form.Control type="number" placeholder="£" />
                     </Form.Group>
                 </Col>
 
@@ -40,13 +40,13 @@ const MainForm = () => {
                 <Col>
                     <Form.Group controlId="formOpStock">
                         <Form.Label>Opening stock</Form.Label>
-                        <Form.Control type="number" placeholder="Enter opening stock (£)" />
+                        <Form.Control type="number" placeholder="£" />
                     </Form.Group>
                 </Col>
                 <Col>
                     <Form.Group controlId="formClStock">
                         <Form.Label>Closing stock</Form.Label>
-                        <Form.Control type="number" placeholder="Enter closing stock (£)" />
+                        <Form.Control type="number" placeholder="£" />
                     </Form.Group>
                 </Col>
 
@@ -57,13 +57,13 @@ const MainForm = () => {
                 <Col>
                     <Form.Group controlId="formOpCreditors">
                         <Form.Label>Opening trade creditors</Form.Label>
-                        <Form.Control type="number" placeholder="Enter opening trade creditors (£)" />
+                        <Form.Control type="number" placeholder="£" />
                     </Form.Group>
                 </Col>
                 <Col>
                     <Form.Group controlId="formClCreditors">
                         <Form.Label>Closing trade creditors</Form.Label>
-                        <Form.Control type="number" placeholder="Enter closing trade creditors (£)" />
+                        <Form.Control type="number" placeholder="£" />
                     </Form.Group>
                 </Col>
 
