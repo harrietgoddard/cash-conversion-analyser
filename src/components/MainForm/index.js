@@ -1,86 +1,194 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Form, Col, Button } from 'react-bootstrap';
 import FormField from './FormField';
 
-const MainForm = () => {
+class MainForm extends Component {
     
-    return (
-        <Form className="ml-5 mr-5">
+    constructor(props) {
+        super(props);
 
-            <FormField
-            controlId={ "formEbitda "}
-            label={ "EBITDA*" }
-            type={ "number" }
-            text={ "*Earnings Before Interest, Taxation, Depreciation and Amortisation" } 
-            />
+        this.state = {
+            ebitda: "",
+            debtors: {
+                opening: "",
+                closing: ""
+            },
+            stock: {
+                opening: "",
+                closing: ""
+            },
+            creditors: {
+                opening: "",
+                closing: ""
+            },
+        };
 
-            <Form.Row>
+        this.handleEbitda = this.handleEbitda.bind(this);
+        this.handleOpDebtors = this.handleOpDebtors.bind(this);
+        this.handleClDebtors = this.handleClDebtors.bind(this);
+        this.handleOpStock = this.handleOpStock.bind(this);
+        this.handleClStock = this.handleClStock.bind(this);
+        this.handleOpCreditors = this.handleOpCreditors.bind(this);
+        this.handleClCreditors = this.handleClCreditors.bind(this);
 
-                <Col>
-                    <FormField
-                        controlId={ "formOpDebtors "}
-                        label={ "Opening trade debtors" }
-                        type={ "number" } 
-                    />
-                </Col>
-                <Col>
-                    <FormField
-                        controlId={ "formClDebtors "}
-                        label={ "Closing trade debtors" }
-                        type={ "number" } 
-                    />
-                </Col>
+    };
 
-            </Form.Row>
+    handleEbitda = e => {
+        this.setState({
+            ebitda: e.currentTarget.value
+        });
+    };
 
-            <Form.Row>
+    handleOpDebtors = e => {
+        this.setState({
+            debtors: {
+                ...this.state.debtors,
+                opening: e.currentTarget.value
+            }
+        });
+    };
 
-                <Col>
-                    <FormField
-                        controlId={ "formOpStock "}
-                        label={ "Opening stock" }
-                        type={ "number" } 
-                    />
-                </Col>
-                <Col>
-                    <FormField
-                        controlId={ "formClStock "}
-                        label={ "Closing stock" }
-                        type={ "number" } 
-                    />
-                </Col>
+    handleClDebtors = e => {
+        this.setState({
+            debtors: {
+                ...this.state.debtors,
+                closing: e.currentTarget.value
+            }
+        });
+    };
 
-            </Form.Row>
+    handleOpStock = e => {
+        this.setState({
+            stock: {
+                ...this.state.stock,
+                opening: e.currentTarget.value
+            }
+        });
+    };
 
-            <Form.Row>
+    handleClStock = e => {
+        this.setState({
+            stock: {
+                ...this.state.stock,
+                closing: e.currentTarget.value
+            }
+        });
+    };
 
-                <Col>
-                    <FormField
-                        controlId={ "formOpCreditors "}
-                        label={ "Opening trade creditors" }
-                        type={ "number" } 
-                    />
-                </Col>
-                <Col>
-                    <FormField
-                        controlId={ "formClCreditors "}
-                        label={ "Closing trade creditors" }
-                        type={ "number" } 
-                    />
-                </Col>
+    handleOpCreditors = e => {
+        this.setState({
+            creditors: {
+                ...this.state.creditors,
+                opening: e.currentTarget.value
+            }
+        });
+    };
 
-            </Form.Row>
+    handleClCreditors = e => {
+        this.setState({
+            creditors: {
+                ...this.state.creditors,
+                closing: e.currentTarget.value
+            }
+        });
+    };
 
-            <Button 
-                variant="primary" 
-                type="submit"
-                className="mt-3"
-            >
-                Generate report
-            </Button>
+    render() {
+        
+        const { ebitda, debtors, stock, creditors } = this.state;
+        
+        return (
+            <Form className="ml-5 mr-5">
 
-        </Form>
-    );
+                <FormField
+                controlId={ "formEbitda "}
+                label={ "EBITDA*" }
+                type={ "number" }
+                text={ "*Earnings Before Interest, Taxation, Depreciation and Amortisation" }
+                value={ ebitda }
+                handleChange={ this.handleEbitda } 
+                />
+
+                <Form.Row>
+
+                    <Col>
+                        <FormField
+                            controlId={ "formOpDebtors "}
+                            label={ "Opening trade debtors" }
+                            type={ "number" }
+                            value={ debtors.opening }
+                            handleChange={ this.handleOpDebtors } 
+                        />
+                    </Col>
+                    <Col>
+                        <FormField
+                            controlId={ "formClDebtors "}
+                            label={ "Closing trade debtors" }
+                            type={ "number" }
+                            value={ debtors.closing }
+                            handleChange={ this.handleClDebtors }  
+                        />
+                    </Col>
+
+                </Form.Row>
+
+                <Form.Row>
+
+                    <Col>
+                        <FormField
+                            controlId={ "formOpStock "}
+                            label={ "Opening stock" }
+                            type={ "number" } 
+                            value={ stock.opening }
+                            handleChange={ this.handleOpStock } 
+                        />
+                    </Col>
+                    <Col>
+                        <FormField
+                            controlId={ "formClStock "}
+                            label={ "Closing stock" }
+                            type={ "number" } 
+                            value={ stock.closing }
+                            handleChange={ this.handleClStock }
+                        />
+                    </Col>
+
+                </Form.Row>
+
+                <Form.Row>
+
+                    <Col>
+                        <FormField
+                            controlId={ "formOpCreditors "}
+                            label={ "Opening trade creditors" }
+                            type={ "number" }
+                            value={ creditors.opening }
+                            handleChange={ this.handleOpCreditors } 
+                        />
+                    </Col>
+                    <Col>
+                        <FormField
+                            controlId={ "formClCreditors "}
+                            label={ "Closing trade creditors" }
+                            type={ "number" }
+                            value={ creditors.closing }
+                            handleChange={ this.handleClCreditors } 
+                        />
+                    </Col>
+
+                </Form.Row>
+
+                <Button 
+                    variant="primary" 
+                    type="submit"
+                    className="mt-3"
+                >
+                    Generate report
+                </Button>
+
+            </Form>
+        );
+    };
 };
 
 export default MainForm;
