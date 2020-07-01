@@ -1,23 +1,6 @@
-import React from 'react';
-import { CircularProgressbar } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
+import { connect } from "react-redux";
+import ConversionPercentage from './ConversionPercentage';
 
-const ConversionPercentage = () => {
-    
-    const value = 0.66;
-    
-    return (
-        <div 
-            style={{width: 200, height: 200, margin: "auto"}}
-            className="mt-5 mb-5"
-        >
-            <CircularProgressbar 
-                value={value} 
-                maxValue={1} 
-                text={`${value * 100}%`}
-            />
-        </div>
-    );
-};
+const mapStateToProps = ({ test }) => ({ test });
 
-export default ConversionPercentage;
+export default connect(mapStateToProps)(ConversionPercentage);
