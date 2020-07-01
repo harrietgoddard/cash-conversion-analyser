@@ -24,6 +24,12 @@ class MainForm extends Component {
         };
 
         this.handleEbitda = this.handleEbitda.bind(this);
+        this.handleOpDebtors = this.handleOpDebtors.bind(this);
+        this.handleClDebtors = this.handleClDebtors.bind(this);
+        this.handleOpStock = this.handleOpStock.bind(this);
+        this.handleClStock = this.handleClStock.bind(this);
+        this.handleOpCreditors = this.handleOpCreditors.bind(this);
+        this.handleClCreditors = this.handleClCreditors.bind(this);
 
     };
 
@@ -33,9 +39,63 @@ class MainForm extends Component {
         });
     };
 
+    handleOpDebtors = e => {
+        this.setState({
+            debtors: {
+                ...this.state.debtors,
+                opening: e.currentTarget.value
+            }
+        });
+    };
+
+    handleClDebtors = e => {
+        this.setState({
+            debtors: {
+                ...this.state.debtors,
+                closing: e.currentTarget.value
+            }
+        });
+    };
+
+    handleOpStock = e => {
+        this.setState({
+            stock: {
+                ...this.state.stock,
+                opening: e.currentTarget.value
+            }
+        });
+    };
+
+    handleClStock = e => {
+        this.setState({
+            stock: {
+                ...this.state.stock,
+                closing: e.currentTarget.value
+            }
+        });
+    };
+
+    handleOpCreditors = e => {
+        this.setState({
+            creditors: {
+                ...this.state.creditors,
+                opening: e.currentTarget.value
+            }
+        });
+    };
+
+    handleClCreditors = e => {
+        this.setState({
+            creditors: {
+                ...this.state.creditors,
+                closing: e.currentTarget.value
+            }
+        });
+    };
+
     render() {
         
-        const { ebitda } = this.state;
+        const { ebitda, debtors, stock, creditors } = this.state;
         
         return (
             <Form className="ml-5 mr-5">
@@ -55,14 +115,18 @@ class MainForm extends Component {
                         <FormField
                             controlId={ "formOpDebtors "}
                             label={ "Opening trade debtors" }
-                            type={ "number" } 
+                            type={ "number" }
+                            value={ debtors.opening }
+                            handleChange={ this.handleOpDebtors } 
                         />
                     </Col>
                     <Col>
                         <FormField
                             controlId={ "formClDebtors "}
                             label={ "Closing trade debtors" }
-                            type={ "number" } 
+                            type={ "number" }
+                            value={ debtors.closing }
+                            handleChange={ this.handleClDebtors }  
                         />
                     </Col>
 
@@ -75,6 +139,8 @@ class MainForm extends Component {
                             controlId={ "formOpStock "}
                             label={ "Opening stock" }
                             type={ "number" } 
+                            value={ stock.opening }
+                            handleChange={ this.handleOpStock } 
                         />
                     </Col>
                     <Col>
@@ -82,6 +148,8 @@ class MainForm extends Component {
                             controlId={ "formClStock "}
                             label={ "Closing stock" }
                             type={ "number" } 
+                            value={ stock.closing }
+                            handleChange={ this.handleClStock }
                         />
                     </Col>
 
@@ -93,14 +161,18 @@ class MainForm extends Component {
                         <FormField
                             controlId={ "formOpCreditors "}
                             label={ "Opening trade creditors" }
-                            type={ "number" } 
+                            type={ "number" }
+                            value={ creditors.opening }
+                            handleChange={ this.handleOpCreditors } 
                         />
                     </Col>
                     <Col>
                         <FormField
                             controlId={ "formClCreditors "}
                             label={ "Closing trade creditors" }
-                            type={ "number" } 
+                            type={ "number" }
+                            value={ creditors.closing }
+                            handleChange={ this.handleClCreditors } 
                         />
                     </Col>
 
