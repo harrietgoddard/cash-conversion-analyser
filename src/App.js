@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/Header/';
 import MainForm from './components/MainForm/';
 import ConversionPercentage from './components/ConversionPercentage/';
+import Commentary from './components/Commentary/';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Header />
       <MainForm />
       <ConversionPercentage />
+      <Commentary />
     </>
   );
 }
