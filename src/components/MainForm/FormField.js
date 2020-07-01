@@ -6,11 +6,18 @@ const FormField = ({
     label, 
     type,
     text,
+    value,
+    handleChange,
 }) => {
     return (
         <Form.Group controlId={ controlId }>
             <Form.Label>{ label }</Form.Label>
-            <Form.Control type={ type } placeholder="£" />
+            <Form.Control 
+                type={ type } 
+                placeholder="£"
+                value={ value }
+                onChange={ handleChange } 
+            />
             <Form.Text className="text-muted">{ text }</Form.Text>
         </Form.Group>
     );
