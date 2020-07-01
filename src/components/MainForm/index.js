@@ -2,6 +2,7 @@ import React from 'react';
 import { Form, Col, Button } from 'react-bootstrap';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import FormField from './FormField';
 
 const MainForm = () => {
     
@@ -10,27 +11,28 @@ const MainForm = () => {
     return (
         <Form className="ml-5 mr-5">
 
-            <Form.Group controlId="formEbitda">
-                <Form.Label>EBITDA*</Form.Label>
-                <Form.Control type="number" placeholder="£" />
-                <Form.Text className="text-muted">
-                *Earnings Before Interest, Taxation, Depreciation and Amortisation
-                </Form.Text>
-            </Form.Group>
+            <FormField
+            controlId={ "formEbitda "}
+            label={ "EBITDA*" }
+            type={ "number" }
+            text={ "*Earnings Before Interest, Taxation, Depreciation and Amortisation" } 
+            />
 
             <Form.Row>
 
                 <Col>
-                    <Form.Group controlId="formOpDebtors">
-                        <Form.Label>Opening trade debtors</Form.Label>
-                        <Form.Control type="number" placeholder="£" />
-                    </Form.Group>
+                    <FormField
+                        controlId={ "formOpDebtors "}
+                        label={ "Opening trade debtors" }
+                        type={ "number" } 
+                    />
                 </Col>
                 <Col>
-                    <Form.Group controlId="formClDebtors">
-                        <Form.Label>Closing trade debtors</Form.Label>
-                        <Form.Control type="number" placeholder="£" />
-                    </Form.Group>
+                    <FormField
+                        controlId={ "formClDebtors "}
+                        label={ "Closing trade debtors" }
+                        type={ "number" } 
+                    />
                 </Col>
 
             </Form.Row>
@@ -38,16 +40,18 @@ const MainForm = () => {
             <Form.Row>
 
                 <Col>
-                    <Form.Group controlId="formOpStock">
-                        <Form.Label>Opening stock</Form.Label>
-                        <Form.Control type="number" placeholder="£" />
-                    </Form.Group>
+                    <FormField
+                        controlId={ "formOpStock "}
+                        label={ "Opening stock" }
+                        type={ "number" } 
+                    />
                 </Col>
                 <Col>
-                    <Form.Group controlId="formClStock">
-                        <Form.Label>Closing stock</Form.Label>
-                        <Form.Control type="number" placeholder="£" />
-                    </Form.Group>
+                    <FormField
+                        controlId={ "formClStock "}
+                        label={ "Closing stock" }
+                        type={ "number" } 
+                    />
                 </Col>
 
             </Form.Row>
@@ -55,16 +59,18 @@ const MainForm = () => {
             <Form.Row>
 
                 <Col>
-                    <Form.Group controlId="formOpCreditors">
-                        <Form.Label>Opening trade creditors</Form.Label>
-                        <Form.Control type="number" placeholder="£" />
-                    </Form.Group>
+                    <FormField
+                        controlId={ "formOpCreditors "}
+                        label={ "Opening trade creditors" }
+                        type={ "number" } 
+                    />
                 </Col>
                 <Col>
-                    <Form.Group controlId="formClCreditors">
-                        <Form.Label>Closing trade creditors</Form.Label>
-                        <Form.Control type="number" placeholder="£" />
-                    </Form.Group>
+                    <FormField
+                        controlId={ "formClCreditors "}
+                        label={ "Closing trade creditors" }
+                        type={ "number" } 
+                    />
                 </Col>
 
             </Form.Row>
