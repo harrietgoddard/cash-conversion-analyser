@@ -1,4 +1,4 @@
-# Under delevlopment - Cash Conversion Analyser
+# Under development - Cash Conversion Analyser
 
 A tool for small business owners to analyse how cash generative their business is at an operational level, from P&L and balance sheet inputs. Includes operating cash conversion % and recommendations on how to improve working capital.
 
