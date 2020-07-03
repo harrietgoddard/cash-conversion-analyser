@@ -1,12 +1,12 @@
 import initialState from './initial';
 
-const submitData = (state, action) => {
+const submitData = (state, { ebitda, debtors, stock, creditors }) => {
     return {
         ...state,
-        ebitda: action.ebitda,
-        debtors: action.debtors,
-        stock: action.stock,
-        creditors: action.creditors
+        ebitda,
+        debtors,
+        stock,
+        creditors,
     };
 };
 
@@ -34,13 +34,13 @@ const calculateOutflows = state => {
     let stockCashflow = -(stock.closing - stock.opening);
     let creditorsCashflow = creditors.closing - creditors.opening;
     
-    let cashOutflows = {};
+    let cashOutflows = [];
 
-    cashOutflows = debtorsCashflow < 0 ? {...cashOutflows, debtors: debtorsCashflow} : cashOutflows;
+    cashOutflows = debtorsCashflow < 0 ? [...cashOutflows, { debtors: debtorsCashflow }] : cashOutflows;
 
-    cashOutflows = stockCashflow < 0 ? {...cashOutflows, stock: stockCashflow} : cashOutflows;
+    cashOutflows = stockCashflow < 0 ? [...cashOutflows, { stock: stockCashflow }] : cashOutflows;
 
-    cashOutflows = creditorsCashflow < 0 ? {...cashOutflows, creditors: creditorsCashflow} : cashOutflows;
+    cashOutflows = creditorsCashflow < 0 ? [...cashOutflows, { creditors: creditorsCashflow }] : cashOutflows;
 
     return {
         ...state,
