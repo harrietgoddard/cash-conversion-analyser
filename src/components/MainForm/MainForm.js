@@ -103,6 +103,8 @@ class MainForm extends Component {
     };
 
     handleClick = () => {
+        this.props.handleClick();
+        
         this.setState({
             ebitda: "",
             debtors: {

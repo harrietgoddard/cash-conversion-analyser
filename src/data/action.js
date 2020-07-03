@@ -1,7 +1,7 @@
-export const generateReport = data => {
+export const submitData = data => {
 
     return {
-        type: "GENERATE_REPORT",
+        type: "SUBMIT_DATA",
         ebitda: +data.ebitda,
         debtors: {
             opening: +data.debtors.opening,
@@ -15,6 +15,14 @@ export const generateReport = data => {
             opening: +data.creditors.opening,
             closing: +data.creditors.closing
         },
+    };
+
+};
+
+export const reset = () => {
+
+    return {
+        type: "RESET"
     };
 
 };
