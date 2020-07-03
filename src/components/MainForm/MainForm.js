@@ -192,8 +192,9 @@ class MainForm extends Component {
                     <Col>
                         <FormField
                             controlId={ "formOpCreditors "}
-                            label={ "Opening trade creditors" }
+                            label={ "Opening trade creditors*" }
                             type={ "number" }
+                            text= { "*Enter positive numbers (your balance sheet may show trade creditors as negative numbers)" }
                             value={ creditors.opening }
                             handleChange={ this.handleOpCreditors } 
                         />
@@ -201,7 +202,7 @@ class MainForm extends Component {
                     <Col>
                         <FormField
                             controlId={ "formClCreditors "}
-                            label={ "Closing trade creditors" }
+                            label={ "Closing trade creditors*" }
                             type={ "number" }
                             value={ creditors.closing }
                             handleChange={ this.handleClCreditors } 
