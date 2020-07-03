@@ -214,17 +214,38 @@ class MainForm extends Component {
                 <Button 
                     variant="primary" 
                     type="submit"
-                    className="mt-3"
+                    className="mt-3 mr-3"
                 >
                     Generate report
                 </Button>
 
                 <Button 
                     variant="secondary" 
-                    className="mt-3 ml-3"
+                    className="mt-3 mr-3"
                     onClick={ this.handleClick }
                 >
                     Clear form
+                </Button>
+
+                <Button 
+                    variant="outline-danger" 
+                    className="mt-3 mr-3"
+                >
+                    Demo Business A
+                </Button>
+
+                <Button 
+                    variant="outline-warning" 
+                    className="mt-3 mr-3"
+                >
+                    Demo Business B
+                </Button>
+
+                <Button 
+                    variant="outline-info" 
+                    className="mt-3"
+                >
+                    Demo Business C
                 </Button>
 
             </Form>
