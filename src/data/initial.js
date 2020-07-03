@@ -1,6 +1,5 @@
 //set initial state
 const initial = {
-    test: 0.59,
 
     ebitda: 0,
     debtors: {
@@ -15,6 +14,8 @@ const initial = {
         opening: 0,
         closing: 0
     },
+
+    cashConversion: 0,
 };
 
 export default initial;
