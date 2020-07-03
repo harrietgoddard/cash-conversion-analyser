@@ -16,6 +16,7 @@ const initial = {
     },
 
     cashConversion: 0,
+    cashOutflows: {},
 };
 
 export default initial;
