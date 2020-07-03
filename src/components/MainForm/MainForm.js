@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Form, Col, Button } from 'react-bootstrap';
 import FormField from './FormField';
+import { demoA, demoB, demoC } from '../../data/demoData';
 
 class MainForm extends Component {
     
@@ -120,7 +121,16 @@ class MainForm extends Component {
                 closing: ""
             },
         });
-    }
+    };
+
+    handleDemo = (demo) => {
+        this.setState({ 
+            ebitda: demo.ebitda,
+            debtors: demo.debtors,
+            stock: demo.stock,
+            creditors: demo.creditors
+        });
+    };
 
     render() {
         
@@ -230,6 +240,7 @@ class MainForm extends Component {
                 <Button 
                     variant="outline-danger" 
                     className="mt-3 mr-3"
+                    onClick={ () => this.handleDemo(demoA) }
                 >
                     Demo Business A
                 </Button>
@@ -237,6 +248,7 @@ class MainForm extends Component {
                 <Button 
                     variant="outline-warning" 
                     className="mt-3 mr-3"
+                    onClick={ () => this.handleDemo(demoB) }
                 >
                     Demo Business B
                 </Button>
@@ -244,6 +256,7 @@ class MainForm extends Component {
                 <Button 
                     variant="outline-info" 
                     className="mt-3"
+                    onClick={ () => this.handleDemo(demoC) }
                 >
                     Demo Business C
                 </Button>
