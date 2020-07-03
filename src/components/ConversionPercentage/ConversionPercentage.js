@@ -2,9 +2,9 @@ import React from 'react';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
-const ConversionPercentage = ({ test }) => {
+const ConversionPercentage = ({ cashConversion }) => {
     
-    const value = test;
+    const value = cashConversion;
     
     return (
         <div 

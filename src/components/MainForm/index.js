@@ -1,13 +1,14 @@
 import { connect } from "react-redux";
 import MainForm from './MainForm';
-import { generateReport } from '../../data/action';
+import { submitData, reset } from '../../data/action';
 
 const mapDispatchToProps = dispatch => {
 
     return {
         handleSubmit: data => { 
-            dispatch(generateReport(data));
-        }
+            dispatch(submitData(data));
+        },
+        handleClick: () => dispatch(reset())
     };
     
 };
