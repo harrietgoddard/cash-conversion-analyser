@@ -31,17 +31,17 @@ export const demoB = {
 };
 
 export const demoC = {
-    ebitda: 105,
+    ebitda: 600,
     debtors: {
-        opening: 99,
-        closing: 120
+        opening: 950,
+        closing: 1150
     },
     stock: {
-        opening: 77,
-        closing: 66
+        opening: 75,
+        closing: 300
     },
     creditors: {
-        opening: 55,
-        closing: 44
+        opening: 75,
+        closing: 35
     },
 };
