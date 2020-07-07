@@ -11,7 +11,7 @@ const Header = () => {
             <p className="text-muted"><em>
                 Fill in the form below using your latest P&amp;L and opening and closing balance sheet.
             </em></p>
-            </Jumbotron>
+        </Jumbotron>
     );
 };
 

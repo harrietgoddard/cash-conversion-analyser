@@ -10,14 +10,18 @@ const submitData = (state, { ebitda, debtors, stock, creditors }) => {
     };
 };
 
+const assetCashflow = asset => {
+    return -(asset.closing - asset.opening);
+};
+
+const liabilityCashflow = liability => {
+    return liability.closing - liability.opening;
+};
+
 const calculateConversion = state => {
     const { ebitda, debtors, stock, creditors } = state;
 
-    let debtorsCashflow = -(debtors.closing - debtors.opening);
-    let stockCashflow = -(stock.closing - stock.opening);
-    let creditorsCashflow = creditors.closing - creditors.opening;
-
-    let cashFlow = ebitda + debtorsCashflow + stockCashflow + creditorsCashflow;
+    let cashFlow = ebitda + assetCashflow(debtors) + assetCashflow(stock) + liabilityCashflow(creditors);
 
     let cashConversion = (cashFlow / ebitda).toFixed(2);
 
@@ -30,17 +34,13 @@ const calculateConversion = state => {
 const calculateOutflows = state => {
     const { debtors, stock, creditors } = state;
 
-    let debtorsCashflow = -(debtors.closing - debtors.opening);
-    let stockCashflow = -(stock.closing - stock.opening);
-    let creditorsCashflow = creditors.closing - creditors.opening;
-    
-    let cashOutflows = [];
+    let cashFlows = [
+        { name: "debtors", value: assetCashflow(debtors) }, 
+        { name: "stock", value: assetCashflow(stock) }, 
+        { name: "creditors", value: liabilityCashflow(creditors) }
+    ];
 
-    cashOutflows = debtorsCashflow < 0 ? [...cashOutflows, { debtors: debtorsCashflow }] : cashOutflows;
-
-    cashOutflows = stockCashflow < 0 ? [...cashOutflows, { stock: stockCashflow }] : cashOutflows;
-
-    cashOutflows = creditorsCashflow < 0 ? [...cashOutflows, { creditors: creditorsCashflow }] : cashOutflows;
+    let cashOutflows = cashFlows.filter(cashflow => cashflow.value < 0);
 
     return {
         ...state,
