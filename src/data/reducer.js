@@ -40,7 +40,7 @@ const calculateOutflows = state => {
         { name: "creditors", value: liabilityCashflow(creditors) }
     ];
 
-    let cashOutflows = cashFlows.filter(cashflow => cashflow.value < 0);
+    let cashOutflows = cashFlows.filter(cashflow => cashflow.value < 0).sort((a, b) => a.value - b.value);
 
     return {
         ...state,
