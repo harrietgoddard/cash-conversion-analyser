@@ -7,7 +7,7 @@ const initial = {
     creditors: {},
 
     cashConversion: 0,
-    cashOutflows: [],
+    cashOutflows: [{ name: "", value: 0 }, { name: "", value: 0 }, { name: "", value: 0 }],
 };
 
 export default initial;
