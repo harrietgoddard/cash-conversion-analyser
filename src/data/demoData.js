@@ -22,11 +22,11 @@ export const demoB = {
     },
     stock: {
         opening: 2400,
-        closing: 2600
+        closing: 1600
     },
     creditors: {
         opening: 5600,
-        closing: 6400
+        closing: 5300
     },
 };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { advice, explanation } from '../../data/advice';
+import { advice, explanation, label } from '../../data/advice';
 
 const Commentary = ({ cashConversion, cashOutflows }) => {
     
@@ -30,23 +30,31 @@ const Commentary = ({ cashConversion, cashOutflows }) => {
 
             <p className="ml-5 mr-5 mb-3">
 
-                { primaryOutflow.name !== "debtors" ? null :
-                `Your largest cash drain is your trade debtors, which increased by £${ -primaryOutflow.value }. ${ advice.debtors.primary } ${ advice.debtors.secondary }` }
+                {/* { primaryOutflow.name !== "debtors" ? null :
+                `Your largest cash drain is your trade debtors, which increased by £${ -primaryOutflow.value }. ${ advice.debtors.primary } ${ advice.debtors.secondary }` } */}
 
-            </p>
-
-            <p className="ml-5 mr-5 mb-3">
-
-                { primaryOutflow.name !== "stock" ? null :
-                `Your largest cash drain is your stock, which increased by £${ -primaryOutflow.value }. ${ advice.stock.primary } ${ advice.stock.secondary }` }
-
-            </p>
-
-            <p className="ml-5 mr-5 mb-3">
-
-                { primaryOutflow.name !== "creditors" ? null :
-                `Your largest cash drain is your creditors, which decreased by £${ -primaryOutflow.value }. ${ advice.creditors.primary } ${ advice.creditors.secondary }` }
+                Your largest cash drain is your { label[primaryOutflow.name] }, 
                 
+                which { primaryOutflow.name === "creditors" ? "decreased" : "increased" } by £{ -primaryOutflow.value }.
+
+                { advice[primaryOutflow.name].primary } 
+
+                { advice[primaryOutflow.name].secondary }
+
+            </p>
+
+            <p className="ml-5 mr-5 mb-3">
+
+                {/* { primaryOutflow.name !== "stock" ? null :
+                `Your largest cash drain is your stock, which increased by £${ -primaryOutflow.value }. ${ advice.stock.primary } ${ advice.stock.secondary }` } */}
+
+            </p>
+
+            <p className="ml-5 mr-5 mb-3">
+
+                {/* { primaryOutflow.name !== "creditors" ? null :
+                `Your largest cash drain is your creditors, which decreased by £${ -primaryOutflow.value }. ${ advice.creditors.primary } ${ advice.creditors.secondary }` } */}
+
             </p>
 
         </div>
